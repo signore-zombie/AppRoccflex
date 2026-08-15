@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roccflex · Comunicación Interna y RRHH — Maqueta de prototipo</title>
+  <meta name="description" content="Maqueta navegable del prototipo de app de comunicación interna y RRHH para Roccflex. Vista faena (celular) y vista oficina (escritorio).">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23F97316'/><path d='M28 68V32h22a12 12 0 0 1 0 24h-8l14 12H45L33 56h-5v12z' fill='%230F172A'/></svg>">
+</head>
+<body>
+
+  <!-- ══════════════════ BARRA SUPERIOR ══════════════════ -->
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="logo" aria-hidden="true">R</span>
+      <div class="topbar__titles">
+        <strong>Roccflex</strong>
+        <span>Comunicación interna y RRHH · <em>Maqueta de prototipo</em></span>
+      </div>
+    </div>
+
+    <div class="topbar__controls">
+      <div class="segmented" role="tablist" aria-label="Vista">
+        <button class="segmented__btn is-active" data-action="view" data-value="both" role="tab">Ambas vistas</button>
+        <button class="segmented__btn" data-action="view" data-value="phone" role="tab">Solo faena</button>
+        <button class="segmented__btn" data-action="view" data-value="office" role="tab">Solo oficina</button>
+      </div>
+      <button class="btn btn--accent" data-action="guided-start">▶ Demo guiada</button>
+      <button class="btn btn--ghost" data-action="reset" title="Volver al estado inicial">↺ Reiniciar</button>
+    </div>
+  </header>
+
+  <!-- ══════════════════ ESCENARIO ══════════════════ -->
+  <main class="stage" id="stage">
+
+    <!-- Panel FAENA -->
+    <section class="pane pane--phone" id="paneFaena">
+      <div class="pane__head">
+        <span class="pane__tag pane__tag--faena">FAENA</span>
+        <h2>Trabajador en terreno</h2>
+        <p>Luis Cárdenas · Maestro montajista · Faena El Roble</p>
+      </div>
+      <div class="phone">
+        <div class="phone__frame">
+          <div class="phone__statusbar">
+            <span>9:41</span>
+            <span class="phone__statusicons">
+              <svg viewBox="0 0 24 12" width="18" height="9" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1" fill="currentColor"/><rect x="5" y="5" width="3" height="7" rx="1" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor" opacity=".35"/></svg>
+              <svg viewBox="0 0 26 12" width="22" height="10" aria-hidden="true"><rect x="0.5" y="0.5" width="21" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2" y="2" width="14" height="8" rx="1.5" fill="currentColor"/><rect x="23" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg>
+            </span>
+          </div>
+          <div class="phone__screen" id="phoneScreen"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panel OFICINA -->
+    <section class="pane pane--office" id="paneOficina">
+      <div class="pane__head">
+        <span class="pane__tag pane__tag--oficina">OFICINA</span>
+        <h2>Administración y RRHH</h2>
+        <p>Marcela Soto · Analista de RRHH · Casa matriz</p>
+      </div>
+      <div class="browser">
+        <div class="browser__bar">
+          <span class="browser__dot"></span><span class="browser__dot"></span><span class="browser__dot"></span>
+          <span class="browser__url">roccflex.app/gestion</span>
+        </div>
+        <div class="browser__screen" id="officeScreen"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════ PANEL DE DEMO GUIADA ══════════════════ -->
+  <aside class="coach" id="coach" hidden>
+    <div class="coach__head">
+      <span class="coach__step" id="coachStep">Paso 1 de 8</span>
+      <button class="coach__close" data-action="guided-stop" aria-label="Cerrar demo guiada">✕</button>
+    </div>
+    <h3 id="coachTitle"></h3>
+    <p id="coachText"></p>
+    <div class="coach__foot">
+      <button class="btn btn--ghost btn--sm" data-action="guided-prev">← Atrás</button>
+      <button class="btn btn--accent btn--sm" data-action="guided-next" id="coachNext">Siguiente →</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <footer class="footnote">
+    Maqueta de prototipo · datos ficticios con fines de demostración · no conectada a sistemas productivos
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
